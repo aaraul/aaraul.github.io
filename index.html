@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta de perdón</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #respuesta {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1 id="pregunta">¿Me perdonas?</h1>
+        <button id="si-btn" onclick="mostrarRespuesta('Yo también te quiero mucho :)')">Sí</button>
+        <button id="no-btn" onmouseover="moverBoton()" onclick="desactivarBoton()">No</button>
+        <p id="respuesta"></p>
+    </div>
+
+    <script>
+        function mostrarRespuesta(mensaje) {
+            document.getElementById('pregunta').style.display = 'none';
+            document.getElementById('si-btn').style.display = 'none';
+            document.getElementById('no-btn').style.display = 'none';
+
+            document.getElementById('respuesta').innerText = mensaje;
+            document.getElementById('respuesta').style.display = 'block';
+        }
+
+        function desactivarBoton() {
+            document.getElementById('no-btn').disabled = true;
+        }
+
+        function moverBoton() {
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+
+            var randomX = Math.floor(Math.random() * (screenWidth - 100)); // Evita que el botón se salga de la pantalla
+            var randomY = Math.floor(Math.random() * (screenHeight - 30)); // Evita que el botón se salga de la pantalla
+
+            document.getElementById('no-btn').style.position = 'absolute';
+            document.getElementById('no-btn').style.left = randomX + 'px';
+            document.getElementById('no-btn').style.top = randomY + 'px';
+        }
+    </script>
+
+</body>
+</html>
+
